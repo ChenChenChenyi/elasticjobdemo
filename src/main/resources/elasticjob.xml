@@ -1,0 +1,39 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+<!--       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--       xmlns:elasticjob="http://shardingsphere.apache.org/schema/elasticjob"-->
+<!--       xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+<!--                        http://www.springframework.org/schema/beans/spring-beans.xsd-->
+<!--                        http://shardingsphere.apache.org/schema/elasticjob-->
+<!--                        http://shardingsphere.apache.org/schema/elasticjob/elasticjob.xsd-->
+<!--                        ">-->
+
+<!--&lt;!&ndash;    &lt;!&ndash;配置作业注册中心 &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    <elasticjob:zookeeper id="regCenter" server-lists="127.0.0.1:2181" namespace="cy"&ndash;&gt;-->
+<!--&lt;!&ndash;                          base-sleep-time-milliseconds="1000" max-sleep-time-milliseconds="3000" max-retries="3"/>&ndash;&gt;-->
+
+<!--    &lt;!&ndash; 配置数据源 &ndash;&gt;-->
+<!--&lt;!&ndash;    <bean id="tracingDataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">&ndash;&gt;-->
+<!--&lt;!&ndash;        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />&ndash;&gt;-->
+<!--&lt;!&ndash;        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/elasticjob" />&ndash;&gt;-->
+<!--&lt;!&ndash;        <property name="username" value="root" />&ndash;&gt;-->
+<!--&lt;!&ndash;        <property name="password" value="123456" />&ndash;&gt;-->
+<!--&lt;!&ndash;    </bean>&ndash;&gt;-->
+<!--    &lt;!&ndash; 配置事件追踪 &ndash;&gt;-->
+<!--&lt;!&ndash;    <elasticjob:rdb-tracing id="elasticJobTrace" data-source-ref="dataSource" />&ndash;&gt;-->
+
+<!--    &lt;!&ndash; 配置基于 class 的作业调度 &ndash;&gt;-->
+<!--    <elasticjob:job id="myElasticJobTask" job-ref="myElasticJob" registry-center-ref="zookeeperRegistryCenter"-->
+<!--                    job-listener-types="myElasticJobListener,myDistributeOnceSimpleJobListener" overwrite="true"-->
+<!--                    tracing-ref=""-->
+<!--                    sharding-total-count="2" cron="0/5 * * * * ?" sharding-item-parameters="0=A,1=B"/>-->
+
+<!--    &lt;!&ndash; 配置基于 type 的作业调度 &ndash;&gt;-->
+<!--&lt;!&ndash;    <elasticjob:job id="${myScriptJob.id}" job-type="SCRIPT" registry-center-ref="regCenter"&ndash;&gt;-->
+<!--&lt;!&ndash;                    sharding-total-count="${myScriptJob.shardingTotalCount}" cron="${myScriptJob.cron}">&ndash;&gt;-->
+<!--&lt;!&ndash;        <props>&ndash;&gt;-->
+<!--&lt;!&ndash;            <prop key="script.command.line">${myScriptJob.scriptCommandLine}</prop>&ndash;&gt;-->
+<!--&lt;!&ndash;        </props>&ndash;&gt;-->
+<!--&lt;!&ndash;    </elasticjob:job>&ndash;&gt;-->
+
+<!--</beans>-->
